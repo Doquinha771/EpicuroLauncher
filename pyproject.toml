@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epicuro-launcher"
+version = "1.0.0"
+description = "Local Flask launcher for downloading and organizing media assets."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "EpicuroLauncher contributors" }
+]
+keywords = ["flask", "yt-dlp", "spotdl", "media", "launcher"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Flask",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia",
+]
+dependencies = [
+    "Flask>=3.0,<4",
+    "yt-dlp>=2025.1.15",
+    "spotdl>=4.2,<5",
+    "imageio-ffmpeg>=0.5,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/Doquinha771/EpicuroLauncher"
+Repository = "https://github.com/Doquinha771/EpicuroLauncher"
+Issues = "https://github.com/Doquinha771/EpicuroLauncher/issues"
+
+[project.scripts]
+epicuro-launcher = "main:cli"
+
+[tool.setuptools]
+py-modules = ["main"]

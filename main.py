@@ -14,6 +14,8 @@ import glob
 # "A simplicidade e o ultimo grau de sofisticacao."
 # ==============================================================================
 
+VERSION = "1.0.0"
+
 # --- CONFIGURACAO DE AMBIENTE ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOWNLOAD_DIR = os.path.join(BASE_DIR, "retool_downloads")
@@ -358,8 +360,35 @@ def open_browser():
         webbrowser.open(f'http://{HOST}:{PORT}')
         browser_opened = True
 
-if __name__ == '__main__':
+def run(host=None, port=None, auto_open_browser=None):
+    global HOST, PORT, AUTO_OPEN_BROWSER
+
+    if host is not None:
+        HOST = host
+    if port is not None:
+        PORT = port
+    if auto_open_browser is not None:
+        AUTO_OPEN_BROWSER = auto_open_browser
+
     threading.Thread(target=open_browser, daemon=True).start()
     print("--- EPICURO AURA STARTED ---")
     print(f"Open http://{HOST}:{PORT} in your browser.")
     app.run(host=HOST, port=PORT, debug=False, use_reloader=False)
+
+def cli():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        prog="epicuro-launcher",
+        description="Run the EpicuroLauncher local web app.",
+    )
+    parser.add_argument("--host", default=HOST, help="Host to bind. Defaults to EPICURO_HOST or 127.0.0.1.")
+    parser.add_argument("--port", type=int, default=PORT, help="Port to bind. Defaults to EPICURO_PORT or 5000.")
+    parser.add_argument("--no-open-browser", action="store_true", help="Do not open the browser automatically.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
+    args = parser.parse_args()
+
+    run(host=args.host, port=args.port, auto_open_browser=not args.no_open_browser)
+
+if __name__ == '__main__':
+    cli()

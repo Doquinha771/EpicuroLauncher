@@ -21,6 +21,9 @@ env/
 # Generated app output
 retool_downloads/
 aura_bundle_*.zip
+build/
+dist/
+*.egg-info/
 
 # Editor and OS files
 .idea/
