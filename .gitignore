@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration
+.env
+.env.*
+
+# Generated app output
+retool_downloads/
+aura_bundle_*.zip
+
+# Editor and OS files
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
