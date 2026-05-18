@@ -1,8 +1,8 @@
-# Epicuro Aura
+# EpicuroLauncher
 
-Epicuro Aura is a minimal local Flask app for downloading media assets from supported URLs through a small browser interface. It supports video, audio-only extraction, playlist packaging, and Spotify downloads through `spotdl`.
+Launcher em Python para baixar e organizar videos com uma interface local direta e facil de manter. O app roda em Flask, abre no navegador e suporta download de video, extracao de audio, playlists e downloads via `spotdl`.
 
-> Use this project only with media you own, media in the public domain, or content you have permission to download. Respect the terms of service of each platform.
+> Use este projeto apenas com midias suas, em dominio publico, ou que voce tenha permissao para baixar. Respeite os termos de uso de cada plataforma.
 
 ## Features
 
